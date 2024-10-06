@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://gxotfeuj38ke"]
+
+[ext_resource type="Script" path="res://Scripts/electricity.gd" id="1_r7jmp"]
+[ext_resource type="Texture2D" uid="uid://c6ffs6dhfnori" path="res://Sprites/electricity_16x16.png" id="2_lx6mx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e82ee"]
+atlas = ExtResource("2_lx6mx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g8nc"]
+atlas = ExtResource("2_lx6mx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbocu"]
+atlas = ExtResource("2_lx6mx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uhfc"]
+atlas = ExtResource("2_lx6mx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mr2dc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e82ee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g8nc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbocu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uhfc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="electricity" type="Node2D"]
+script = ExtResource("1_r7jmp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mr2dc")

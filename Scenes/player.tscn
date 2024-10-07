@@ -3,9 +3,6 @@
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_4u4ft"]
 [ext_resource type="Texture2D" uid="uid://dupbnrtundshp" path="res://Sprites/protagonist_32x32.png" id="1_wk8o6"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5tsgn"]
-radius = 7.07107
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6s8u5"]
 atlas = ExtResource("1_wk8o6")
 region = Rect2(0, 0, 32, 32)
@@ -70,14 +67,20 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tsgn"]
+radius = 7.07107
+
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_4u4ft")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6n2u6")
+animation = &"player"
+frame_progress = 0.569286
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_5tsgn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6n2u6")
-animation = &"player"
-frame_progress = 0.651985
+[connection signal="moved" from="." to="." method="_on_moved"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://5at25bj5i16h"]
+
+[ext_resource type="Texture2D" uid="uid://cjpa4sgdmw080" path="res://Sprites/battery.png" id="1_ift75"]
+[ext_resource type="PackedScene" uid="uid://d4k6n1khqngje" path="res://Scenes/ui_minus.tscn" id="2_b3c5s"]
+[ext_resource type="PackedScene" uid="uid://1ocx6f8sxpmt" path="res://Scenes/ui_plus.tscn" id="3_ops0t"]
+
+[node name="battery" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ift75")
+
+[node name="minus" parent="." instance=ExtResource("2_b3c5s")]
+position = Vector2(-11, 0)
+
+[node name="plus" parent="." instance=ExtResource("3_ops0t")]
+position = Vector2(11, 0)

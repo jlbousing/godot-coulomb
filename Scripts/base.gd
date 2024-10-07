@@ -35,7 +35,6 @@ func move(x, y):
 
 	# Posición actual
 	var current_pos = position
-	print(current_pos)
 	
 	# Nueva posición basada en el tamaño de la cuadrícula
 	var target_pos = current_pos + Vector2(x * GRID_SIZE, y * GRID_SIZE)

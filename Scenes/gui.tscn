@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfhnxh7ksdjgy"]
+
+[ext_resource type="FontFile" uid="uid://dsra8vs2xfa4r" path="res://ChevyRay-LittleLeague-Size5.ttf" id="1_eglxv"]
+[ext_resource type="Script" path="res://Scripts/gui.gd" id="1_wmune"]
+[ext_resource type="FontFile" uid="uid://bmc7ud8giyhjm" path="res://ChevyRay-Pinch-Size7.ttf" id="2_6hwnx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rb4wv"]
+font = ExtResource("1_eglxv")
+
+[sub_resource type="LabelSettings" id="LabelSettings_l178j"]
+font = ExtResource("2_6hwnx")
+
+[sub_resource type="LabelSettings" id="LabelSettings_rh1jo"]
+font = ExtResource("2_6hwnx")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wmune")
+
+[node name="VoltageContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Voltage" type="Label" parent="VoltageContainer"]
+layout_mode = 2
+text = "9V"
+label_settings = SubResource("LabelSettings_rb4wv")
+
+[node name="StepsContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="LabelSteps" type="Label" parent="StepsContainer"]
+layout_mode = 2
+text = "Available Steps: "
+label_settings = SubResource("LabelSettings_l178j")
+
+[node name="Steps" type="Label" parent="StepsContainer"]
+layout_mode = 2
+text = "10"
+label_settings = SubResource("LabelSettings_rh1jo")

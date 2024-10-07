@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://q4uj8twb4hu2"]
+[gd_scene load_steps=11 format=3 uid="uid://q4uj8twb4hu2"]
 
 [ext_resource type="Texture2D" uid="uid://drlgmcxp4pm3h" path="res://Sprites/background.png" id="1_7jjib"]
 [ext_resource type="Texture2D" uid="uid://crl8nkg0fahgs" path="res://Sprites/tileset.png" id="1_t8pi2"]
 [ext_resource type="PackedScene" uid="uid://k6h8tgg2cgm" path="res://Scenes/player.tscn" id="2_arl2y"]
 [ext_resource type="PackedScene" uid="uid://5at25bj5i16h" path="res://Scenes/battery.tscn" id="3_dcm5p"]
 [ext_resource type="PackedScene" uid="uid://dfhnxh7ksdjgy" path="res://Scenes/gui.tscn" id="5_pfsn5"]
+[ext_resource type="PackedScene" uid="uid://bdw62x40i1q3l" path="res://Scenes/led.tscn" id="6_8ukr4"]
+[ext_resource type="PackedScene" uid="uid://qwqcw6s1psg6" path="res://Scenes/resistence.tscn" id="7_xh8nl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rgu2g"]
 texture = ExtResource("1_7jjib")
@@ -266,5 +268,13 @@ offset_bottom = 277.0
 
 [node name="Control" parent="Control" instance=ExtResource("5_pfsn5")]
 layout_mode = 1
+steps = 20
+
+[node name="led" parent="." instance=ExtResource("6_8ukr4")]
+position = Vector2(203, 125)
+
+[node name="Resistence" parent="." instance=ExtResource("7_xh8nl")]
+position = Vector2(137, 151)
 
 [connection signal="moved" from="Player" to="Control/Control" method="_on_player_moved"]
+[connection signal="send_status" from="Resistence" to="Control/Control" method="_on_resistence_send_status"]

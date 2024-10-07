@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdw62x40i1q3l"]
+
+[ext_resource type="Script" path="res://Scripts/led.gd" id="1_2hi4w"]
+[ext_resource type="Texture2D" uid="uid://b86b2mi73ab2u" path="res://Sprites/bulb_off.png" id="2_a1x8x"]
+[ext_resource type="PackedScene" uid="uid://d4k6n1khqngje" path="res://Scenes/ui_minus.tscn" id="3_1twbi"]
+[ext_resource type="PackedScene" uid="uid://1ocx6f8sxpmt" path="res://Scenes/ui_plus.tscn" id="4_p46nh"]
+
+[node name="led" type="Node2D"]
+script = ExtResource("1_2hi4w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_a1x8x")
+
+[node name="minus" parent="." instance=ExtResource("3_1twbi")]
+position = Vector2(-10, 10)
+
+[node name="plus" parent="." instance=ExtResource("4_p46nh")]
+position = Vector2(10, 10)
+
+[connection signal="send_status" from="minus" to="." method="_on_negative_send_status"]
+[connection signal="send_status" from="plus" to="." method="_on_positive_send_status"]

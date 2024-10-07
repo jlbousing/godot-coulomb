@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://qwqcw6s1psg6"]
+
+[ext_resource type="Script" path="res://Scripts/resistence.gd" id="1_ebyd5"]
+[ext_resource type="Texture2D" uid="uid://22r4f6xlsl38" path="res://Sprites/resistor_horizontal.png" id="2_v24we"]
+[ext_resource type="PackedScene" uid="uid://d4k6n1khqngje" path="res://Scenes/ui_minus.tscn" id="3_so3q7"]
+[ext_resource type="PackedScene" uid="uid://1ocx6f8sxpmt" path="res://Scenes/ui_plus.tscn" id="4_le1tw"]
+
+[node name="Resistence" type="Node2D"]
+script = ExtResource("1_ebyd5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v24we")
+
+[node name="minus" parent="." instance=ExtResource("3_so3q7")]
+position = Vector2(-13, 0)
+
+[node name="plus" parent="." instance=ExtResource("4_le1tw")]
+position = Vector2(14, 0)
+
+[connection signal="send_status" from="minus" to="." method="_on_negative_send_status"]
+[connection signal="send_status" from="plus" to="." method="_on_positive_send_status"]

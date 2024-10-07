@@ -268,7 +268,6 @@ offset_bottom = 277.0
 
 [node name="Control" parent="Control" instance=ExtResource("5_pfsn5")]
 layout_mode = 1
-steps = 20
 
 [node name="led" parent="." instance=ExtResource("6_8ukr4")]
 position = Vector2(203, 125)

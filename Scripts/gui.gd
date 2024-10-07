@@ -1,25 +1,22 @@
 extends Control
 
-@export var voltage = 9
-@export var steps = 10
 
 func _ready() -> void:
-	$VoltageContainer/Voltage.text = str(voltage) + 'V'
-	$StepsContainer/Steps.text = str(steps)
+	$VoltageContainer/Voltage.text = str(Global.voltage) + 'V'
+	$StepsContainer/Steps.text = str(Global.steps)
 
 func set_voltage(value):
-	voltage = value
-	$VoltageContainer/Voltage.text = str(voltage) + 'V'
+	$VoltageContainer/Voltage.text = str(Global.voltage) + 'V'
 
 func set_steps():
-	$StepsContainer/Steps.text = str(steps)
+	$StepsContainer/Steps.text = str(Global.steps)
 	
 func _on_player_moved():
-	if steps > 0:
-		steps -= 1  # Descuenta un paso
+	if Global.steps > 0:
+		Global.less_steps()
 		set_steps()
 
 
 func _on_resistence_send_status() -> void:
-	voltage = 5
-	set_voltage(voltage)
+	Global.set_voltage(5)
+	set_voltage(Global.voltage)
